@@ -7,16 +7,6 @@
     justify-content: center;
     text-align: center;
 }
-
-/* .addHome {
-    padding: 10px;
-    margin-top: 20px;
-    cursor: pointer;
-    border: none;
-    background-color: rgb(85, 241, 23);
-    color: white;
-    font-weight: bold;
-} */
   
 h1 {
     margin-bottom: 33px;
@@ -35,12 +25,6 @@ h1 {
     gap: 10px;
 }
 
-button {
-    padding: 3px 6px;
-    background-color: white;
-    cursor: pointer;
-}
-
 .delete {
     border: 1px solid gray;
     color: white;
@@ -56,16 +40,6 @@ button {
     flex-direction: column;
 }
       
-/* input {
-    width: 250px;
-    padding: 5px;
-    border: 1px solid gray;
-} */
-  
-/* textarea {
-    padding: 10px;
-} */
-  
 button {
     border: none;
     padding: 10px;
