@@ -7,7 +7,7 @@ const Add = () => {
     const [newCPU, setNewCPU]=useState({
         brand: "",
         model: "",
-        socketid: 1,
+        socketid: null,
         clockspeed: "",
         cores: null,
         threads: null,
@@ -23,6 +23,7 @@ const Add = () => {
 
     const handleClick = async e =>{
         e.preventDefault();
+        if (newCPU.brand==="" || newCPU.model==="" || newCPU.socketid===null) return;
         try {
             await axios.post("http://localhost:8800/cpulist", newCPU);
             navigate("/");

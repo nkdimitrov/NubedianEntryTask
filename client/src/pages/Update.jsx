@@ -43,6 +43,7 @@ const Update = () => {
   
   const handleClick = async (e) => {
     // e.preventDefault();
+    if (cpuItem.brand==="" || cpuItem.model==="" || cpuItem.socketid===null) return;
     try {
       // console.log(cpuItem);
       await axios.put(`http://localhost:8800/cpulist/${cpuItemID}`, cpuItem);
