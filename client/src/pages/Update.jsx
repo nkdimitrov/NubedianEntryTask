@@ -2,6 +2,13 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
+// import Box from '@mui/material/Box';
+// import InputLabel from '@mui/material/InputLabel';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import Select, { SelectChangeEvent } from '@mui/material/Select';
+
+
 const Update = () => {
  
   const location = useLocation();
@@ -36,26 +43,6 @@ const Update = () => {
       fetchAllSockets();
   },[]);
 
-  // function renameSocket (currentSocketId) {
-  //     for (let j in sockets) {
-  //         if (currentSocketId===sockets[j].id) return sockets[j].cpusocket
-  //     };
-  // };
-
-  // const socketsWorking = sockets.map((element) =>{
-  //   return String(element.socket);
-  // });
-
-  // let cpuItemWorking = cpuItem['0'];
-
-  // console.log(socketsWorking[4]);
-  // console.log(cpuItemWorking);
-  // console.log(typeof(cpuItemWorking));
- 
-  // console.log(oneCPUItem);
-  // console.log(socketItemID);
-  // console.log(socketItem);
-
   const [error,setError] = useState(false);
   const handleChange = (e) => {
     setCpuItem((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -73,26 +60,56 @@ const Update = () => {
     }
   };
   
-  console.log(cpuItem);
-  // function inputDefaultBrand(){
-  //   const defaultValue = String(cpuItem[0].brand)
-  //   return defaultValue
-  // }
-
-  function test1(cpuItemInput){
-    // console.log("<><><><><><><><><><>");
-    // console.log(cpuItemInput);
-    // console.log("<><><><><><><><><><>");
-    return cpuItemInput?.brand
+  function Sockets(socket) {
+    return <option value = {socket.id}>{socket.socket}</option>
   }
 
+  console.log(cpuItem);
+  // console.log(sockets);
+
+  // function test1(cpuItemInput){
+  //   // console.log("<><><><><><><><><><>");
+  //   // console.log(cpuItemInput);
+  //   // console.log("<><><><><><><><><><>");
+  //   return cpuItemInput?.brand
+  // }
+
+  
+    // const [age, setAge] = React.useState('');
+  
+    // const handleChangeDrop = (e) => {
+    //   setAge(e.target.value);
+    // };
+  
+    //   // <Box sx={{ minWidth: 120 }}>
+    //     <FormControl fullWidth>
+    //       <InputLabel id="demo-simple-select-label">Age</InputLabel>
+    //       <Select
+    //         labelId="demo-simple-select-label"
+    //         id="demo-simple-select"
+    //         value={age}
+    //         label="Age"
+    //         onChange={handleChange}
+    //       >
+    //         <MenuItem value={10}>Ten</MenuItem>
+    //         <MenuItem value={20}>Twenty</MenuItem>
+    //         <MenuItem value={30}>Thirty</MenuItem>
+    //       </Select>
+    //     </FormControl>
+    //   // </Box>
+  
   return (
     <div className="form">
       <h1>View/Update CPU specifications</h1>
       {/* <p> Brand: <input type="text" defaultValue={cpuItem[0]?.brand} name="brand" onChange={handleChange} /></p> */}
-      <p> Brand: <input type="text" defaultValue={test1(cpuItem)} name="brand" onChange={(e)=>handleChange(e)} /></p>
+      <p> Brand: <input type="text" defaultValue={cpuItem?.brand} name="brand" onChange={(e)=>handleChange(e)} /></p>
       <p> Model: <input type="text" defaultValue={cpuItem?.model} name="model" onChange={(e)=>handleChange(e)} /></p>
-      <p> Socket: <input type="text" defaultValue="3" name="socketid" onChange={handleChange} /></p>  
+
+      <p> Socket: <select type="number" name = "socketid" onChange={handleChange}>
+        <option value = {socketID}>{sockets[socketID-1]?.socket}</option>
+        {sockets.map((element)=>Sockets(element))}
+      </select></p>
+      
       <p> Clockspeed [GHz]: <input type="text" defaultValue={cpuItem?.clockspeed} name="clockspeed" onChange={handleChange} /></p>
       <p> Cores: <input type="number" defaultValue={cpuItem?.cores} name="cores" onChange={handleChange} /></p>
       <p> Threads: <input type="number" defaultValue={cpuItem?.threads} name="threads" onChange={handleChange} /></p>     

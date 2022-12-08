@@ -37,7 +37,7 @@ const Add = () => {
             <h1>Add New CPU</h1>
             <input type="text" placeholder="Brand" name="brand" onChange={handleChange} />
             <input type="text" placeholder="Model" name="model" onChange={handleChange} />
-            <input type="number" placeholder="Socket" name="socketid" onChange={handleChange} />  
+            <input type="number" placeholder="SocketID" name="socketid" onChange={handleChange} />  
             <input type="text" placeholder="Clockspeed [GHz]" name="clockspeed" onChange={handleChange} />
             <input type="number" placeholder="Cores" name="cores" onChange={handleChange} />
             <input type="number" placeholder="Threads" name="threads" onChange={handleChange} />     
