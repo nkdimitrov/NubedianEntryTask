@@ -31,7 +31,7 @@ const Add = () => {
         };
     };
 
-    console.log(newCPU);
+    // console.log(newCPU);
     return(
         <div className="form">
             <h1>Add New CPU</h1>

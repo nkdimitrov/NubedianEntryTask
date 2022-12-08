@@ -52,20 +52,6 @@ const Update = () => {
       setError(true);
     }
   };
-  
-  function Sockets(socket) {
-    return <option value = {socket.id}>{socket.socket}</option>
-  }
-
-  // console.log(cpuItem);
-  // console.log(sockets);
-
-  // function test1(cpuItemInput){
-  //   // console.log("<><><><><><><><><><>");
-  //   // console.log(cpuItemInput);
-  //   // console.log("<><><><><><><><><><>");
-  //   return cpuItemInput?.brand
-  // }
 
   return (
     <div className="form">
@@ -75,10 +61,7 @@ const Update = () => {
 
       <p> Socket: <select type="number" name = "socketid" onChange={handleChange}>
         <option value = {socketID}>{sockets[socketID-1]?.socket}</option>
-        {        
-          // eslint-disable-next-line
-          sockets.map((element)=>Sockets(element))
-        }
+        {sockets.map((element)=><option key={element.id} value = {element.id}>{element.socket}</option>)}
         </select>
       </p>
 
